@@ -6,7 +6,8 @@ export const ToDoList = () => {
 
     const dispatch = useDispatch()
 
-    const todos = useSelector(state => state.todos)
+    const todos = useSelector(state => state.todos.todos);
+    
     const handleRemoveItem = (todoId) => {
         dispatch(removeTodo({id: todoId}))
     }
