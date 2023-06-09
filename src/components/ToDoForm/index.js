@@ -17,8 +17,13 @@ const initialValues = {
 
 export const ToDoForm = ({onSubmit = _identity}) => {
 
+    const onFormSubmit = (values, { resetForm }) => {
+        onSubmit(values);
+        resetForm(); // Reset the form after submission
+      };
+
     return <div>
-        <Formik initialValues={initialValues } onSubmit={onSubmit} validationSchema={validationScheme}>
+        <Formik initialValues={initialValues } onSubmit={onFormSubmit} validationSchema={validationScheme}>
             <Form>
                 <div>
                     <label>Title</label>
